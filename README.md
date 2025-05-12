@@ -54,8 +54,6 @@ loan-service/
 
 ---
 
----
-
 ## 🔐 Environment Setup
 
 API_SECRET=your-secure-api-key
@@ -83,8 +81,6 @@ Test API:
 curl http://localhost:8080/health
 ```
 
----
-
 ### 🔁 Development (Auto reload)
 
 > Watch for file changes and rebuild app automatically
@@ -94,8 +90,6 @@ make dev-build
 ```
 
 When editing any `.go` file, the service auto-restarts.
-
----
 
 ### 🛠️ Makefile Commands
 
