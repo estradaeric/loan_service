@@ -1,0 +1,22 @@
+# Ignore OS / IDE / editor files
+*.log
+*.swp
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Ignore binaries
+loan-service
+*.exe
+*.out
+
+# Ignore version control
+.git
+.gitignore
+
+# Ignore dependency cache
+vendor/
+node_modules/
+
+# Explicitly DO NOT ignore .env (penting!)
+# Jangan tulis `.env` di sini supaya tetap dicopy ke container

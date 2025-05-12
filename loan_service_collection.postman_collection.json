@@ -1,0 +1,167 @@
+{
+  "info": {
+    "name": "Loan Service API",
+    "_postman_id": "loan-service-collection",
+    "description": "Collection for testing Loan Service API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Loan",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-API-KEY",
+            "value": "{{api_key}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"borrower_id\": \"BORR-001\", \"principal\": 1500000, \"rate\": 12, \"roi\": 5}"
+        },
+        "url": {
+          "raw": "{{base_url}}/loans",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "loans"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Approve Loan",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-API-KEY",
+            "value": "{{api_key}}"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "field_validator_id",
+              "value": "EMP-001",
+              "type": "text"
+            },
+            {
+              "key": "proof_image",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/loans/{{loan_id}}/approve",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "loans",
+            "{{loan_id}}",
+            "approve"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Invest Loan",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-API-KEY",
+            "value": "{{api_key}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"investor_id\": \"INV-001\", \"amount\": 1500000}"
+        },
+        "url": {
+          "raw": "{{base_url}}/loans/{{loan_id}}/invest",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "loans",
+            "{{loan_id}}",
+            "invest"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Disburse Loan",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-API-KEY",
+            "value": "{{api_key}}"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "field_officer_id",
+              "value": "EMP-002",
+              "type": "text"
+            },
+            {
+              "key": "disburse_notes",
+              "value": "Agreement signed",
+              "type": "text"
+            },
+            {
+              "key": "signed_agreement",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/loans/{{loan_id}}/disburse",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "loans",
+            "{{loan_id}}",
+            "disburse"
+          ]
+        }
+      }
+    }
+  ]
+}

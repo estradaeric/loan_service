@@ -1,0 +1,20 @@
+# Config for github.com/cosmtrek/air (Go hot reload)
+[build]
+  bin = "tmp/main"
+  cmd = "go build -o tmp/main ./cmd/main.go"
+  full_bin = ""
+  include_ext = ["go", "env"]
+  exclude_dir = ["vendor", "tmp"]
+  exclude_file = []
+  follow_symlink = true
+  poll = true
+  delay = 1000 # milliseconds
+
+[log]
+  time = true
+
+[color]
+  main = "yellow"
+  watcher = "cyan"
+  build = "green"
+  runner = "magenta"
